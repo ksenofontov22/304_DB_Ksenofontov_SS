@@ -1,27 +1,22 @@
-# Task02
+# Task02 - ETL для SQLite
 
 ## Требования к окружению
 
-- Python 3
-- SQLite (утилита `sqlite3` в PATH)
-- bash (Git Bash / WSL / Linux)
+- **Python 3** (проверка: `python3 --version`)
+- **SQLite** - консольный клиент `sqlite3` в `PATH` (проверка: `sqlite3 --version`)
+- **Bash** (Linux/macOS/Git Bash) для запуска `db_init.bat`
+
+## Структура
+
+| Файл | Назначение |
+|------|-----------|
+| `db_init.bat` | Скрипт генерирует db_init.sql и создаёт заполненную базу movies_rating.db. |
+| `make_db_init.py` | генератор SQL-скрипта |
+| `db_init.sql` | результат работы генератора |
+| `movies_rating.db` | итоговая база SQLite |
+| `movies.csv`, `ratings.csv`, `tags.csv`, `users.txt` | исходные данные |
 
 ## Запуск
 
-./db_init.bat
-
-Скрипт генерирует `db_init.sql` и создаёт заполненную базу `movies_rating.db`.
-
-## Файлы
-
-- `make_db_init.py` — генератор SQL-скрипта
-- `db_init.bat` — запуск генератора и загрузка скрипта в БД
-- `db_init.sql` — сгенерированный SQL
-- `movies_rating.db` — итоговая база данных
-
-## Исходные данные
-
-- `movies.csv` — фильмы (movieId, title, genres)
-- `ratings.csv` — оценки (userId, movieId, rating, timestamp)
-- `tags.csv` — теги (userId, movieId, tag, timestamp)
-- `users.txt` — пользователи (userId, name, email, gender, birthdate, occupation)
+```bash
+bash db_init.bat
